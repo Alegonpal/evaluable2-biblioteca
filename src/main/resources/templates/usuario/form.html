@@ -39,7 +39,7 @@
 
 			<tr>
 				<td>Fecha de nacimiento</td>
-				<td><input type="date" th:field="*{fechaNacimiento}" /></td>
+				<td><input style="width: 224px;" type="date" th:field="*{fechaNacimiento}" /></td>
 				<td th:if="${#fields.hasErrors('fechaNacimiento')}">
 					<small th:errors="*{fechaNacimiento}" class="form-text text-danger"></small>
 				</td>
