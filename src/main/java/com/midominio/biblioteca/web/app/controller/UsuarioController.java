@@ -3,6 +3,9 @@ package com.midominio.biblioteca.web.app.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,9 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.midominio.biblioteca.web.app.model.entity.Usuario;
 import com.midominio.biblioteca.web.app.model.service.IUsuarioService;
+import com.midominio.biblioteca.web.app.utils.paginator.PageRender;
 
 import jakarta.validation.Valid;
 
@@ -24,11 +29,16 @@ public class UsuarioController {
 	private IUsuarioService usuarioService;
 
 	@GetMapping("/listar")
-	public String listarHandler(Model model) {
-
+	public String listarHandler(@RequestParam(defaultValue = "0") int page,Model model) {
+		
+		Pageable pageRequest = PageRequest.of(page, 5);
+		Page<Usuario> usuarios = usuarioService.listar(pageRequest);
+		PageRender<Usuario> pageRender = new PageRender<>("/usuario/listar", usuarios);
+		
 		model.addAttribute("titulo", "Listado de usuarios");
-		model.addAttribute("usuarios", usuarioService.findAll());
-
+		model.addAttribute("usuarios", usuarios);
+		model.addAttribute("page", pageRender);
+		
 		return "usuario/listar";
 	}
 
