@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/libro")
-public class libroController {
+public class LibroController {
 	
 	@Autowired
 	private ILibroService libroService;

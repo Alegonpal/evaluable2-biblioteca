@@ -10,7 +10,7 @@
 
 <body>
 	<center>
-	<h1 class="text-primary" th:text="${titulo}"></h1>
+	<h1 class="text-primary" th:text="${titulo}"></h1><br>
 	<form th:action="@{/usuario/form}" th:object="${usuario}" method="post">
 		<table>
 			<tr>
@@ -63,7 +63,7 @@
 
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Guardar" /></td>
+				<td><br><input type="submit" value="Guardar" /><a th:href="@{/usuario/listar}"><input type="button" value="Cancelar" /></a></td>
 			</tr>
 
 		</table>
