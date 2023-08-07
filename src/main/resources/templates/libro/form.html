@@ -11,7 +11,7 @@
 <body>
 	<center>
 		<h1 class="text-primary" th:text="${titulo}"></h1><br>
-		<form th:action="@{/libro/form}" th:object="${libro}" method="post">
+		<form th:action="@{/libro/form}" th:object="${libro}" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Título</td>
@@ -84,12 +84,16 @@
 						<small th:errors="*{cantidadEjemplares}" class="form-text text-danger"></small>
 					</td>
 				</tr>
-
+				<tr>
+					<td>Portada</td>
+					<td><input type="file" name="file" class="form-control" style="width: 224px;" /></td>
+				</tr>
 				<tr>
 					<td></td>
-					<td><br><input type="submit" value="Guardar" /><a th:href="@{/libro/listar}"><input type="button" value="Cancelar" /></a></td>
+					<td><br><input type="submit" value="Guardar" /><a th:href="@{/libro/listar}"><input type="button"
+								value="Cancelar" /></a></td>
 				</tr>
-				
+
 
 			</table>
 

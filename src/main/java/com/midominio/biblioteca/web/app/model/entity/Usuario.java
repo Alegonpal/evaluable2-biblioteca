@@ -49,6 +49,7 @@ public class Usuario implements Serializable {
 	@Min(value = 0)
 	@Max(value = 5)
 	private int librosPrestados;
+	private String foto;
 	
 	
 	
@@ -99,5 +100,11 @@ public class Usuario implements Serializable {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }

@@ -48,6 +48,7 @@
 					<th>Fecha de nacimiento</th>
 					<th>Email</th>
 					<th>Libros prestados</th>
+					<th>Foto</th>
 					<th>Acción</th>
 					<th>Acción</th>
 				</tr>
@@ -61,6 +62,8 @@
 					<td th:text="${usuario.fechaNacimiento}"></td>
 					<td th:text="${usuario.email}"></td>
 					<td th:text="${usuario.librosPrestados}"></td>
+					<td th:text="${usuario.foto}" th:ref="@{/upload/ + 'usuario.foto'}" ></td>
+					
 					<td>
 						<a class="btn btn-primary btn-xs" th:href="@{/usuario/form/} + ${usuario.id}">
 							Editar

@@ -49,6 +49,7 @@ public class Libro implements Serializable {
 	@Min(value = 0)
 	@Max(value = 5)
 	private int cantidadEjemplares;
+	private String foto;
 	
 	
 	
@@ -108,5 +109,11 @@ public class Libro implements Serializable {
 	
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }

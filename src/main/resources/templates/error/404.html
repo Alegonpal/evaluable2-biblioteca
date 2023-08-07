@@ -7,10 +7,10 @@
 <body>
 	<h1>Error 404</h1>
 	<div th:text="'Error: ' + ${error}"></div>
-	<div th:text="'Status: ' + ${status}"></div>
-	<div th:text="'Timestamp: ' + ${timestamp}"></div>
-	<div th:text="'Message: ' + ${message}"></div>
+	<div th:text="'Tipo de error: ' + ${status}"></div>
+	<div th:text="'Fecha y hora del error: ' + ${timestamp}"></div>
+	<div th:text="'Mensaje: ' + ${message}"></div>
 	<hr>
-	<div th:text="'Path: ' + ${path}"></div>
+	<div th:text="'Ruta que ha producido el error: ' + ${path}"></div>
 </body>
 </html>

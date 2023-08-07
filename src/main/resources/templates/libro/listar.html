@@ -54,6 +54,7 @@
 					<th>ISBN</th>
 					<th>Número de páginas</th>
 					<th>Cantidad de ejemplares</th>
+					<th>Foto</th>
 					<th>Acción</th>
 					<th>Acción</th>
 				</tr>
@@ -68,6 +69,7 @@
 					<td th:text="${libro.isbn}"></td>
 					<td th:text="${libro.numPaginas}"></td>
 					<td th:text="${libro.cantidadEjemplares}"></td>
+					<td th:text="${libro.foto}" th:ref="@{/upload/ + 'libro.foto'}" ></td>
 					<td>
 						<a class="btn btn-primary btn-xs" th:href="@{/libro/form/} + ${libro.id}">
 							Editar
@@ -81,7 +83,9 @@
 				</tr>
 			</tbody>
 		</table>
+		
 		<nav th:replace="paginator-nav :: paginator"></nav>
+		
 	</div>
 
 	<!-- Script de bootstrap enlazado vía CDN-->

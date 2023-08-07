@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${titulo}"></title>
+	<!-- Hoja de estilos de bootstrap enlazada vía CDN-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<img th:src="@{/images/logobiblio.png}" width="50" height="50" alt="logobiblio">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/home}">Inicio</a>
+					</li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page"
+							th:href="@{/usuario/listar}">Lista de usuarios</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/libro/listar}">Lista
+							de libros</a></li>
+
+					<li class="nav-item"><a class="nav-link active" aria-current="page"
+							th:href="@{/usuario/form}">Añadir usuario</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container py-4">
+		<div class="card bf-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<img class="img-thumbnail rounded float-left" style="max-width: 25%"
+					th:src="@{'/upload/' + ${usuario.foto}}" th:alt="${usuario.foto}" />
+				<ul class="list-group">
+					<li th:text="${usuario.id}"></li>
+					<li th:text="${usuario.nombre}"></li>
+					<li th:text="${usuario.apellido}"></li>
+					<li th:text="${usuario.dni}">
+						</td>
+					<li th:text="${usuario.fechaNacimiento}"></li>
+					<li th:text="${usuario.email}"></li>
+					<li th:text="${usuario.librosPrestados}"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
