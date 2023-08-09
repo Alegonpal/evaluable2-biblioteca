@@ -1,7 +1,7 @@
 package com.midominio.biblioteca.web.app.model.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -40,7 +40,7 @@ public class Usuario implements Serializable {
 	@NotNull
 	@Column(name = "fecha_nacimiento")
 	@DateTimeFormat(iso = ISO.DATE)
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	@Size( min=3, max=40)
 	@NotEmpty
 	private String email;
@@ -79,10 +79,10 @@ public class Usuario implements Serializable {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(@NotNull LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getEmail() {

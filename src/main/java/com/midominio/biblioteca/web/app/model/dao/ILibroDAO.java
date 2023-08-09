@@ -1,6 +1,5 @@
 package com.midominio.biblioteca.web.app.model.dao;
 
-import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
